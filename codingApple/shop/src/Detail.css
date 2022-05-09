@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.title {
+  color: #ff0000;
+}
+
+div.container h4 {
+  color: green;
+}
+
+.alert-yellow {
+  background-color: yellow;
+}
+
+.alert, .alert-yellow {
+  background-color: #eee;
+  border-radius: 5px;
+  color: tomato;
+  font-weight: bold;
+  height: 40px;
+  line-height: 10px;
+  max-width: 500px;
+  width: 400px;
+  margin: 0 auto;
+}
+.alert p, .alert-yellow p {
+  display: inline-block;
+}
+.alert button, .alert-yellow button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 25px;
+  height: 20px;
+  border: none;
+  background-color: white;
+}
+
+.ani-enter {
+  opacity: 0;
+}
+
+.ani-enter-active {
+  opacity: 1;
+  transition: all 1000ms;
+}/*# sourceMappingURL=Detail.css.map */
