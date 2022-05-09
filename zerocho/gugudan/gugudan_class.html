@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class GuGuDan extends React.Component{ //extend = react 안에 component를 상속한다
+                state={ //리액트에서 바뀌는 객체=state
+                    first:Math.ceil(Math.random()*9),
+                    second:Math.ceil(Math.random()*9),
+                    value:'',
+                    result:''
+                };
+            onSubmit=(e)=>{
+                e.preventDefault();
+                if(parseInt(this.state.value)===this.state.first*this.state.second){
+                    this.setState({
+                        result:'정답 : '+this.state.value,
+                        first:Math.ceil(Math.random()*9),
+                        second:Math.ceil(Math.random()*9),
+                        value:'',
+                    })
+                    this.setState((prevState)=>{ //과거의 state를 사용할때
+                        return{
+                            // value:prevState.value + 1
+                        }
+                    })
+                    this.input.focus();
+                }
+                else{
+                    this.setState({
+                        result:'땡',
+                        value:'',
+                    })
+                    this.input.focus();
+                }
+            }
+            render(){
+                return (//태그 사이에 중괄호는 javascript를 쓸 수 있다는거 //xml은 싱글태그에 닫는기호 꼭 붙이기
+                    <div>
+                        <div>{this.state.first} 곱하기 {this.state.second} 는?</div> 
+                        <form onSubmit={this.onSubmit}>
+                            <input ref={(c)=>{this.input = c;}} type="number" value={this.state.value} onChange={(e)=> this.setState({value:e.target.value})}/> 
+                            <button>입력!</button>
+                        </form>
+                        <div>{this.state.result}{this.state.prev}</div>
+                    </div>
+                );
+            }
+        }
+    </script>
+    <script type="text/babel">
+        ReactDOM.render(<GuGuDan />,document.querySelector('#root')); 
+    </script>
+</body>
+</html>

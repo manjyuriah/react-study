@@ -1,0 +1,12 @@
+.title{
+    font-weight: bold;
+    font-size: 30px;
+    color: #CE0811;
+}
+.contain{
+    opacity: 0.1;
+}
+.contain:hover {
+    opacity: 1;
+    transition: all ease 0.9s;
+}

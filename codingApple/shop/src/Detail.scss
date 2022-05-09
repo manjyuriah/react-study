@@ -1,0 +1,50 @@
+@import './reset.scss';
+
+$mainColor : #ff0000;
+
+.title{
+    color:$mainColor;
+}
+div.container{
+    h4{
+        color: green;
+    }
+}
+
+.alert-yellow{
+    @extend .alert;
+    background-color: yellow;
+}
+@mixin alert(){
+    background-color: #eee;
+    border-radius: 5px;
+    color: tomato;
+    font-weight: bold;
+    height: 40px;
+    line-height: 10px;
+    max-width: 500px;
+    width: 400px;
+    margin: 0 auto;
+}
+.alert{
+    @include alert();
+    p{
+        display: inline-block;
+    }
+    button{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 25px;
+        height: 20px;
+        border: none;
+        background-color: white;
+    }
+}
+.ani-enter{
+    opacity: 0;
+}
+.ani-enter-active{
+    opacity: 1;
+    transition: all 1000ms;
+}
