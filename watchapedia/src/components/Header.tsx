@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import {AiOutlineSearch}from 'react-icons/ai'
 
 const Base = styled.header`
   width: 100%;
@@ -194,8 +195,10 @@ const Header: React.FC=()=>{
                             <SearchContainer>
                                 <SearchFormWrapper>
                                     <SearchForm>
-                                        <SearchLabel />
+                                        <SearchLabel>
+                                            <AiOutlineSearch />
                                         <SearchInput placeholder="콘텐츠,인물,컬렉션,유저를 검색해보세요." onChange={handleKeyword}/>
+                                        </SearchLabel>
                                     </SearchForm>
                                 </SearchFormWrapper>
                             </SearchContainer>
