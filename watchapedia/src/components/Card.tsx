@@ -15,7 +15,6 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   display: block;
   margin-inline: 10px;
-  border:1px solid red;
 `;
 
 const Base = styled.div`
@@ -23,6 +22,10 @@ const Base = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
+  :hover{
+    transform: translate(1%, 1%);
+    transition:all .2s ease
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -36,7 +39,6 @@ const Image = styled.img`
   object-fit: cover;
   border-radius: 4px;
 `;
-
 
 const Info = styled.div`
   text-align: left;
@@ -71,7 +73,6 @@ const Average = styled.div`
   display: flex;
   align-items: center;
 `;
-
 const Card: React.FC<Props> = ({ linkUrl, title, posterPath, voteAverage, year }) => (
   <StyledLink to={linkUrl}>
     <Base>
@@ -82,9 +83,15 @@ const Card: React.FC<Props> = ({ linkUrl, title, posterPath, voteAverage, year }
         <Title>{title}</Title>
         <Keyword>{year}</Keyword>
         <Average>
-          <span>평균</span>
-          <span>&nbsp;<AiFillStar /></span>
-          <span>{voteAverage}</span>
+          <span>
+            평균
+          </span>
+          <span>
+            &nbsp;<AiFillStar />
+          </span>
+          <span>
+            {voteAverage}
+          </span>
         </Average>
       </Info>
     </Base>

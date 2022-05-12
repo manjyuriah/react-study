@@ -58,7 +58,7 @@ interface Collection {
     tagline: string;
   }
   
-  interface TV {
+  export interface TV {
     id: number;
     name: string;
     original_name: string;
@@ -97,6 +97,7 @@ interface Collection {
   }
   
   export interface TVDetail extends TV {
+    results: any;
     created_by: Person[];
     episode_run_time: number[];
     genres: Genre[];
