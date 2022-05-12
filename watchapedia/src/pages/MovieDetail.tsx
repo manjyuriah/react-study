@@ -11,6 +11,8 @@ import Footer from "../components/Footer";
 import useMovieDetail from '../features/movie/useMovieDetail';
 
 import { Rating } from '@mui/material';
+import DefaultInfo from '../features/movie/detail/DefaultInfo';
+import Similar from '../features/movie/detail/Similar';
 
 const Base = styled.div`
   position: relative;
@@ -73,6 +75,10 @@ const BackdropImage = styled.div<{ imageUrl: string }>`
   left: auto;
   height: 100%;
   filter: none;
+  :hover{
+    transform: scale(110%);
+    transition:all .5s ease
+  }
 `;
 
 const PosterWrapper = styled.div`
@@ -275,8 +281,14 @@ const MovieDetail: React.FC=()=>{
                             </TopInfo>
                             <BottomInfo>
                                 <ContentSectionContainer>
-                                    {/* <DefaultInfo />
-                                    <Similar /> */}
+                                    <DefaultInfo 
+                                        title={data?.data.title}
+                                        year={year}
+                                        genres={genres}
+                                        runtime={data?.data.runtime}
+                                        overview={data?.data.overview}
+                                    />
+                                    <Similar id={id} />
                                 </ContentSectionContainer>
                             </BottomInfo>
                         </>
