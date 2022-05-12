@@ -17,7 +17,7 @@ const ArrowButton = styled.button<{ pos?: 'left' | 'right' }>`
   cursor:pointer;
   :hover{
     padding:17px;
-    transition:all ease .3s;
+    transition:all ease .1s;
     background-color:#f2f2f2;
   }
   ${({ pos }) => pos === 'left' ? css`left: 0; transform: translate(-50%, -50%)` : css`right: 0; transform: translate(50%, -50%)`};

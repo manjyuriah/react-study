@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import {AiOutlineSearch}from 'react-icons/ai'
+import UseMovieSearch from "../features/movie/useMovieSearch";
 
 const Base = styled.header`
   width: 100%;
@@ -44,9 +45,13 @@ const Menu = styled.li`
 const MenuButton = styled.button<{ active?: boolean }>`
   font-size: 15px;
   color: ${({ active }) => active ? 'rgb(53, 53, 53)' : 'rgb(126, 126, 126)'};
+  font-weight:${({ active }) => active ? 'bold' : 'normal'};
   cursor: pointer;
   border: none;
   background: none;
+  :hover{
+    font-weight:bold;
+  }
 `;
 
 const SearchMenu = styled.li`
@@ -92,7 +97,11 @@ const SearchResultWrapper = styled.div`
   max-height: 480px;
   overflow-y: scroll;
 `;
-
+const SearchResultList = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+`;
 const SearchResultListItem = styled.li`
   padding: 4px 6px;
   box-sizing: border-box;
@@ -109,12 +118,6 @@ const SearchResultListItem = styled.li`
   &:hover {
     background-color: #eee;
   }
-`;
-
-const SearchResultList = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
 `;
 
 const SearchFormWrapper = styled.div``;
@@ -153,6 +156,9 @@ const SignIn = styled.button`
   border: 0;
   cursor: pointer;
   margin: 15px 0;
+  :hover{
+    font-weight:bold;
+  }
 `;
 
 const SignUp = styled.button`
@@ -170,16 +176,20 @@ const SignUp = styled.button`
 `;
 
 const Header: React.FC=()=>{
-    const handleKeyword=()=>{
-
+    const [searchKeyword,setSearchKeyword]=useState<string>('');
+    const pathname=window.location.pathname;
+    const isTv=pathname.indexOf('tv')>-1;
+    const handleKeyword=(e: React.ChangeEvent<HTMLInputElement>): void=>{
+      setSearchKeyword(e.target.value)
     }
+    const {data:searchResult}=UseMovieSearch(searchKeyword);
     return (
         <Base>
             <Navigation>
                 <MenuListWrapper>
                     <MenuList>
                         <Menu>
-                            <Link href=''>
+                            <Link href='/'>
                                 <TextLogo>
                                     <span className="primary">WATCHA</span>
                                     <span>PEDIA</span>
@@ -188,12 +198,12 @@ const Header: React.FC=()=>{
                         </Menu>
                         <Menu>
                           <Link href="/">
-                            <MenuButton>영화</MenuButton>
+                            <MenuButton active={pathname === '/'}>영화</MenuButton>
                           </Link>
                         </Menu>
                         <Menu>
                             <Link href="/tv">
-                                <MenuButton>TV 프로그램</MenuButton>
+                                <MenuButton active={pathname === '/tv'}>TV 프로그램</MenuButton>
                             </Link>
                         </Menu>
                         <SearchMenu>
@@ -207,6 +217,17 @@ const Header: React.FC=()=>{
                                     </SearchForm>
                                 </SearchFormWrapper>
                             </SearchContainer>
+                            <SearchResultWrapper>
+                              <SearchResultList>
+                                {
+                                  searchResult?.data.results.map(item=>(
+                                    <Link key={item.id} href={`/movie/${item.id}`}>
+                                      <SearchResultListItem>{item.title}</SearchResultListItem>
+                                    </Link>
+                                  ))
+                                }
+                              </SearchResultList>
+                            </SearchResultWrapper>
                         </SearchMenu>
                         <Menu>
                             <SignIn>로그인</SignIn>
