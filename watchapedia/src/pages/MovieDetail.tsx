@@ -76,8 +76,8 @@ const BackdropImage = styled.div<{ imageUrl: string }>`
   height: 100%;
   filter: none;
   :hover{
-    transform: scale(110%);
-    transition:all .5s ease
+    transform: scale(106%);
+    transition:all .8s ease
   }
 `;
 
