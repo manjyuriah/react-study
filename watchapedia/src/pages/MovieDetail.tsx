@@ -119,6 +119,9 @@ const Title = styled.h1`
   font-size: 33px;
   font-weight: 700;
   line-height: 40px;
+  @media screen and (max-width: 375px) {
+    font-size: 20px;
+  }
 `;
 
 const Keyword = styled.div`
@@ -126,6 +129,9 @@ const Keyword = styled.div`
   font-weight: 400;
   margin-top: 4px;
   color: rgba(0,0,0,0.5);
+  @media screen and (max-width: 375px) {
+    font-size: 13px;
+  }
 `;
 
 const AverageRate = styled.div`
@@ -136,6 +142,9 @@ const AverageRate = styled.div`
   margin-top: 14px;
   border-top: 1px solid #ededed;
   border-bottom: 1px solid #ededed;
+  @media screen and (max-width: 375px) {
+    font-size: 14px;
+  }
 `;
 
 const Actions = styled.div`
@@ -150,6 +159,9 @@ const StarRate = styled.div`
   height: 57px;
   margin: 0;
   text-align: center;
+  @media screen and (min-width: 375px) {
+    width: 100%;
+  }
 `;
 
 const StarRateText = styled.div`
@@ -170,11 +182,37 @@ const Divider = styled.div`
 `;
 
 const ActionButtonContainer = styled.div`
-  width: 461px;
-  padding: 0 30px;
+  width: 750px;
+  padding: 0 15px;
   margin: 0 -16px;
   display: flex;
   align-items: center;
+  @media screen and (max-width: 375px) {
+    padding:0px;
+    position:absolute;
+    top:96%;
+  }
+  @media screen and (max-width: 520px) {
+    padding:0px;
+    position:absolute;
+    top:96%;
+    left:10%;
+  }
+  @media screen and (max-width: 600px) {
+    padding:0px;
+    position:absolute;
+    top:96%;
+    margin:0 auto;
+  }
+  @media screen and (max-width:800px) {
+    width: 350px;
+    position:absolute;
+    top:96%;
+    margin:0 auto;
+  }
+  @media screen and (min-width:800px) {
+    // border:1px solid red;
+  }
 `;
 
 const ActionButton = styled.button`
@@ -185,6 +223,14 @@ const ActionButton = styled.button`
   display: flex;
   align-items: center;
   cursor: pointer;
+  @media screen and (max-width:800px) {
+    font-size:12px;
+    margin:5px;
+  }
+  @media screen and (min-width:800px) {
+    font-size:14px;
+    margin:1px;
+  }
   &:hover {
     transform: scale(1.1);
     transition:all ease .2s;

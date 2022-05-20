@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import {BrowserRouter as Router,Route,Routes} from 'react-router-dom'
 import MainPage from './pages/MainPage';
@@ -7,6 +7,7 @@ import TvDetail from './pages/TvDetail';
 import TvPage from './pages/Tvpage';
 
 function App() {
+  
   return (
     <Router>
       <Routes>
@@ -20,3 +21,5 @@ function App() {
 }
 
 export default App;
+
+

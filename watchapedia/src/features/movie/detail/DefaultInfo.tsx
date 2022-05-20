@@ -24,6 +24,7 @@ const Title = styled.h2`
   font-size: 19px;
   font-weight: 700;
   margin: 8px 0;
+  
 `;
 
 const Summary = styled.div`

@@ -3,7 +3,7 @@ import {HiOutlineLockClosed} from 'react-icons/hi'
 import {BsPerson} from 'react-icons/bs'
 import {BsPencilSquare} from 'react-icons/bs'
 import {MdOutlineEmail} from 'react-icons/md' 
-import { Dialog, makeStyles } from "@mui/material";
+import { Dialog } from "@mui/material";
 import {MdClose} from 'react-icons/md'
 import { Button } from "@mui/material";
 import React from "react";
@@ -62,7 +62,12 @@ const input={
   marginBottom:"30px",
   marginLeft:"10px"
 }
-const LoginSignUp=()=>{
+const LoginSignUp=(props: any)=>{
+  console.log(props);
+  
+  function clickLogin(){
+    setopenLogin(true);
+  }
     const [openLogin, setopenLogin] = React.useState(false);
     const [openSignUp, setopenSignUp] = React.useState(false);
 
@@ -89,6 +94,7 @@ const LoginSignUp=()=>{
           <br />
           <HiOutlineLockClosed size="24" /><input placeholder="비밀번호" type="password" style={input} />
         <LoginButton variant="contained" color="secondary" size="large">로그인</LoginButton>
+        <input type="checkbox" />아이디 저장
       </LoginBox>
     </Dialog>
     <Dialog open={openSignUp}>

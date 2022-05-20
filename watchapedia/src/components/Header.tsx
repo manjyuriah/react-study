@@ -9,6 +9,7 @@ import UseMovieSearch from "../features/movie/useMovieSearch";
 import { Dialog, makeStyles } from "@mui/material";
 import { Button } from "@mui/material";
 import {MdClose} from 'react-icons/md'
+import LoginSignUp from "./LoginSignUp";
 
 const Base = styled.header`
   width: 100%;
@@ -22,6 +23,9 @@ const Base = styled.header`
   box-shadow: rgb(0 0 0 / 8%) 0px 1px 0px 0px;
   transition: background-color 200ms ease 0s;
   z-index: 10;
+  @media screen and (max-width: 375px) {
+    height: 85px;
+  }
 `;
 
 const Navigation = styled.nav`
@@ -37,6 +41,11 @@ const MenuList = styled.ul`
   padding: 0;
   margin: 0;
   display: flex;
+  position:relative;
+  @media screen and (max-width: 375px) {
+    position:relative;
+  }
+}
 `;
 
 const Menu = styled.li`
@@ -46,7 +55,11 @@ const Menu = styled.li`
   flex-shrink: 0;
   &:not(:first-child) {
     margin: 0 0 0 24px;
+    @media screen and (max-width: 375px) {
+      margin:0px;
+    }
   }
+
 `;
 
 const MenuButton = styled.button<{ active?: boolean }>`
@@ -58,6 +71,9 @@ const MenuButton = styled.button<{ active?: boolean }>`
   background: none;
   :hover{
     font-weight:bold;
+  }
+  @media screen and (max-width: 375px) {
+    font-size: 12px;
   }
 `;
 
@@ -84,6 +100,9 @@ const TextLogo = styled.h1`
   }
   > span:not(.primary) {
     color: #222;
+  }
+  @media screen and (max-width: 375px) {
+    font-size: 18px;
   }
 `;
 
@@ -140,6 +159,16 @@ const SearchLabel = styled.label`
   height: 38px;
   border-radius: 2px;
   padding: 7px 8px;
+  @media screen and (max-width: 375px) {
+    position:absolute;
+    background: transparent;
+    width: 120px;
+    border-bottom:1px solid #2e2e2e;
+    display: flex;
+    align-items: start;
+    margin-top:10px;
+    padding-top:15px;
+  }
 `;
 
 const SearchInput = styled.input`
@@ -153,6 +182,14 @@ const SearchInput = styled.input`
   text-overflow: ellipsis;
   caret-color: rgb(53, 53, 53);
   line-height: 23px;
+  @media screen and (max-width: 375px) {
+    position:absolute;
+    left:0;
+    text-indent:20px;
+    &::placeholder{
+      color:transparent;
+    }
+  }
 `;
 
 const SignIn = styled.button`
@@ -165,6 +202,9 @@ const SignIn = styled.button`
   margin: 15px 0;
   :hover{
     font-weight:bold;
+  }
+  @media screen and (max-width: 375px) {
+    font-size: 12px;
   }
 `;
 
@@ -198,6 +238,9 @@ box-sizing:border-box;
 padding-left:70px;
 >h2{
   margin-bottom:30px;
+}
+@media screen and (max-width: 375px) {
+  padding-left:20px;
 }
 `
 
@@ -318,6 +361,7 @@ const Header: React.FC=()=>{
                                   <br />
                                   <HiOutlineLockClosed size="24" /><input placeholder="비밀번호" type="password" style={input} />
                                 <LoginButton variant="contained" color="secondary" size="large">로그인</LoginButton>
+                                <div><label><input type="checkbox" className="check" />아이디 저장</label></div>
                               </LoginBox>
                             </Dialog>
                         </Menu>

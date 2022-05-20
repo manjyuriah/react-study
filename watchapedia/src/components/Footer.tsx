@@ -27,6 +27,9 @@ const Summary = styled.span`
   font-weight: 500;
   line-height: 22px;
   text-align: center;
+  @media screen and (max-width: 375px) {
+    font-size: 14px;
+  }
 `;
 
 const Emphasis = styled.em`
@@ -34,6 +37,9 @@ const Emphasis = styled.em`
   font-size: 19px;
   font-weight: 500;
   line-height: 22px;
+  @media screen and (max-width: 375px) {
+    font-size: 16px;
+  }
 `;
 
 const Container = styled.section`
@@ -44,11 +50,19 @@ const Container = styled.section`
 const ContentWrapper = styled.div`
   display: flex;
   margin: 0 60px;
+  @media screen and (max-width: 375px) {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    margin:0px;
+  }
 `;
 
-const Left = styled.div``;
+const Left = styled.div`
+`;
 
-const TermsAndPolicy = styled.ul``;
+const TermsAndPolicy = styled.ul`
+`;
 
 const TermsAndPolicyItem = styled.li`
   display: inline-block;
@@ -58,6 +72,9 @@ const TermsAndPolicyItem = styled.li`
   line-height: 22px;
   vertical-align: top;
   cursor: pointer;
+  @media screen and (max-width: 375px) {
+    // border:1px solid red;
+  }
   &:not(:last-of-type) {
     &:after {
       content: "";
